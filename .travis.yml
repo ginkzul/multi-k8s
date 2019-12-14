@@ -19,7 +19,7 @@ before_install:
 
 script:
   # - docker run ginkzul/react-test npm test -- --coverage
-  - docker run -e CI=true $USERNAME/docker-react npm run test
+  - docker run -e CI=true ginkzul/docker-react npm run test
 
 deploy:
   provider: script
