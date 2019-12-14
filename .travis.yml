@@ -15,11 +15,12 @@ before_install:
   - gcloud config set compute/zone australia-southeast1-a
   - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t ginkzul/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t stephengrider/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   # - docker run ginkzul/react-test npm test -- --coverage
-  - docker run -e CI=true ginkzul/docker-react npm run test
+  # - docker run -e CI=true stephengrider/docker-react npm run test
+  - docker run -e CI=true stephengrider/react-test npm run test
 
 deploy:
   provider: script
